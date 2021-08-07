@@ -2,7 +2,54 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-<table  class="table">
+
+
+
+  <div class="row">
+    <div  class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let car of carsDetailDto">
+    <div class="card border-0 mb-3" style="width: 18rem;">
+      <img *ngIf="car.carImage.length==0" class="car-image"  src="{{imgUrl}}{{defaultImage}}" class="card-img-top" alt="Image" width="200" height="200">
+      <img *ngIf="car.carImage.length!=0" class="car-image" 
+      src="{{imgUrl}}{{car.carImage[0].imagePath}}"
+       class="card-img-top" alt="Image" width="200" height="200">
+      <div class="card-body text-center"  >
+        <h4>
+          <a href="" class="card-title text-decoration-none h5" style="color:#007bff;">{{car.carName}} </a>
+        </h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span class="float-start">Marka</span>
+          <span class="float-end">{{car.brandName}}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Renk</span>
+          <span class="float-end">{{car.colorName}}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Model</span>
+          <span class="float-end">{{car.modelYear}}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Açıklama</span>
+          <span class="float-end">{{car.description}}</span>
+        </li>  
+        <p class="card-text text-center h3 mt-3">{{car.dailyPrice }}₺</p>
+      </ul>
+      <div class="card-body">
+        <div class="d-flex action justify-content-between">
+          <a href="" class="btn btn-success">Kirala</a>
+         <a (click)="setCurrentCar(car)" routerLink="/cars/details/{{car.carId}}"
+           class="btn btn-primary">Detaylar</a> 
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+
+<!-- <table  class="table">
     <thead>
     <tr>
        <th scope="col">
@@ -42,8 +89,8 @@
 </tbody>
 </table>
 <hr class="text-danger">
-
-<table  class="table">
+-->
+<table  class="table"> 
     <thead>
     <tr>
        <th scope="col">
@@ -61,7 +108,7 @@
     </th>
     
   
-    </tr>
+    </tr> 
 </thead>
 <tbody>
     <tr *ngFor="let car of carsDetailDto">
@@ -72,4 +119,5 @@
         <td>{{car.dailyPrice}}</td>
     </tr>
 </tbody>
-</table>
+</table>  
+

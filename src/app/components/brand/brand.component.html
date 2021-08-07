@@ -5,18 +5,9 @@
 >
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded != false" class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-
-      <th scope="col">Marka</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let brand of brands">
-      <th scope="row">{{ brand.brandId }}</th>
-      <td>{{ brand.brandName }}</td>
-    </tr>
-  </tbody>
-</table>
+<ul *ngIf="dataLoaded != false" class="list-group">
+  <li routerLink="/cars" class="list-group-item" style="background-color: #e3f2fd;" aria-current="true">Markalar</li>
+  <li routerLink="/cars/brand/{{brand.brandId}}" (click)="setCurrentBrand(brand)" *ngFor="let brand of brands" [class]="getCurrentClass(brand)">{{ brand.brandName }}</li>
+ 
+</ul>
+{{currentBrand.brandName}}

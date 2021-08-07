@@ -1,0 +1,88 @@
+<br><br>
+
+
+
+
+<div class="row"> 
+     
+    <div *ngIf="car" id="carouselExampleDark" class="carousel carousel-dark slide col-md-7" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <!-- <div *ngFor="let image of carImages"  class="carousel-item active" >
+                <img *ngIf="car.carImage.length==0" [src]="imgUrl + defaultImage" class="d-block w-100 " alt="... ">
+                <img *ngIf="car.carImage.length!=0" [src]="imgUrl + image.imagePath" class="d-block w-100 " alt="... ">
+                
+            </div> -->
+<div class="carousel-item active" data-bs-interval="10000">
+                <img *ngIf="car.carImage.length==0 " [src]="imgUrl + defaultImage " class="d-block w-100 " alt="... ">
+                <img *ngIf="car.carImage.length !=0 " [src]="imgUrl + car.carImage[0].imagePath " class="d-block w-100 " alt="... ">
+            </div>
+            <div *ngIf="car.carImage.length > 1" class="carousel-item" data-bs-interval="2000">
+                <img [src]="imgUrl + car.carImage[1].imagePath " class="d-block w-100 " alt="... ">
+            </div>
+            <div *ngIf="car.carImage.length > 2" class="carousel-item">
+                <img [src]="imgUrl + car.carImage[2].imagePath " class="d-block w-100 " alt="... ">
+            </div>
+            <div *ngIf="car.carImage.length > 3" class="carousel-item">
+                <img [src]="imgUrl + car.carImage[3].imagePath " class="d-block w-100 " alt="... ">
+            </div>
+
+           
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+    </div>
+
+    
+    <div *ngIf="car" class="m-auto col-md-4">
+        <div class=" row">
+
+            <h2 class="d-flex tittle">{{car.brandName}} {{car.carName}}</h2>
+            <a style="margin-top:-7px; margin-bottom: 8px;" href="/cars/brand/{{car.brandId}}">{{car.brandName}}</a>
+            <span class="border border-secondary propf5"><b>RENK :</b> {{car.colorName}}</span>
+            <span class="border border-success propf9"><b>MODEL :</b> {{car.modelYear}}</span>
+           
+
+            <div class="container mt-3" style="border: 1px solid gray;">
+                {{car.description}}
+            </div>
+            <hr style="margin-top: 25px;">
+
+           
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </symbol>
+                
+              </svg>
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>
+                <h6>Bu haftaya Özel %10 indirimli</h6>
+                </div>
+            </div>
+            <span class="dprice">{{car.dailyPrice}}</span>
+            <span class="price"><b>{{car.dailyPrice-car.dailyPrice*0.1}}</b></span>
+            
+            <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary btn-lg disabled" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa fa-handshake" style="color: #d8c8c8;" aria-hidden="true"> <span class="text-light"> Kirala</span></i>
+              </button></div>
+        </div>
+    </div>
+</div>
+
+
+
+

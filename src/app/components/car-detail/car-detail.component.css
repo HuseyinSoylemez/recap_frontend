@@ -1,0 +1,23 @@
+
+.dprice {
+    text-align: center;
+    text-decoration: line-through;
+    color: gray;
+    font-size: 20px;
+}
+
+.price {
+    text-align: center;
+    font-size: 32px;
+}
+
+.tittle {
+    color: rgb(238, 10, 10);
+}
+
+.discountt {
+    text-align: center;
+    text-decoration: line-through;
+    color: gray;
+    font-size: 12px;
+}

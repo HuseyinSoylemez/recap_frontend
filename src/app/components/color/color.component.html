@@ -5,18 +5,10 @@
 >
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded != false" class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-
-      <th scope="col">Renk</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let color of colors">
-      <th scope="row">{{ color.colorId }}</th>
-      <td>{{ color.colorName }}</td>
-    </tr>
-  </tbody>
-</table>
+<br>
+<ul *ngIf="dataLoaded != false" class="list-group">
+  <li routerLink="/cars" class="list-group-item" style="background-color: #e3f2fd;" aria-current="true">Renkler</li>
+  <li routerLink="/cars/color/{{color.colorId}}" (click)="setCurrentColor(color)"  *ngFor="let color of colors" [class]="getCurrentClass(color)">{{ color.colorName }}</li>
+ 
+</ul>
+ 
