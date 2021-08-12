@@ -72,11 +72,14 @@
                 <h6>Bu haftaya Özel %10 indirimli</h6>
                 </div>
             </div>
-            <span class="dprice">{{car.dailyPrice}}</span>
-            <span class="price"><b>{{car.dailyPrice-car.dailyPrice*0.1}}</b></span>
+            <span class="dprice">{{car.dailyPrice| currency: "TRY":"₺"}}</span>
+            <span class="price"><b>{{car.dailyPrice-car.dailyPrice*0.1| currency: "TRY":"₺"}}</b></span>
             
             <div class="d-grid gap-2">
-            <button type="button" class="btn btn-primary btn-lg disabled" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" (click)="addToFavorite(car)" class="btn btn-danger btn-lg">
+                <i class="fa fa-bookmark"></i><span class="text-light"> Favorilere Ekle</span>
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa fa-handshake" style="color: #d8c8c8;" aria-hidden="true"> <span class="text-light"> Kirala</span></i>
               </button></div>
         </div>

@@ -1,0 +1,17 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: x-large;" title="Favorilerim">
+        <i class="fa fa-bookmark" style="color: rgb(238, 74, 74);" aria-hidden="true"></i>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li *ngFor="let favoriteItem of favoriteItems" style="width: 235px;">
+            <a class="dropdown-item">
+                <span  style="float: left; cursor: pointer;">{{favoriteItem.car.brandName}} {{favoriteItem.car.carName}}</span>
+                <span (click)="removeFromFavorite(favoriteItem.car)"  class="badge bg-danger mt-1" style="float: right; cursor: pointer; height: min-content;">X</span>
+                <hr>
+            </a>
+        </li>
+        <li *ngIf="favoriteItems.length<1" class="text-center">
+            <span class="badge rounded-pill bg-warning text-dark">Favorileriniz boş</span>
+        </li>
+    </ul> 
+</li>

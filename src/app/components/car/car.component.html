@@ -3,10 +3,24 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
+  <div class="col-md-12">
+    <div class="mb-3">
+       
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+            placeholder="Araç Adı Giriniz">
+    </div>
+</div>
+<div *ngIf="filterText.length>2" class="alert alert-success text-center">
+  {{filterText}} için sonuçlar :
+</div> 
+    <app-car-filter></app-car-filter>
+
+
+
 
 
   <div class="row">
-    <div  class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let car of carsDetailDto">
+    <div  class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let car of carsDetailDto|filterPipe:filterText">
     <div class="card border-0 mb-3" style="width: 18rem;">
       <img *ngIf="car.carImage.length==0" class="car-image"  src="{{imgUrl}}{{defaultImage}}" class="card-img-top" alt="Image" width="200" height="200">
       <img *ngIf="car.carImage.length!=0" class="car-image" 
@@ -34,7 +48,7 @@
           <span class="float-start">Açıklama</span>
           <span class="float-end">{{car.description}}</span>
         </li>  
-        <p class="card-text text-center h3 mt-3">{{car.dailyPrice }}₺</p>
+        <p class="card-text text-center h3 mt-3">{{car.dailyPrice| currency: "TRY":"₺" }}</p>
       </ul>
       <div class="card-body">
         <div class="d-flex action justify-content-between">

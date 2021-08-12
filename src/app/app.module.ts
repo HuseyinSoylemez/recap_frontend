@@ -11,6 +11,16 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 
 
 @NgModule({
@@ -23,12 +33,21 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     RentalComponent,
     NaviComponent,
     CarDetailComponent,
+    FilterPipePipe,   
+    CarFilterComponent, FavoriteComponent, CreditCardComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    // AngularFontAwesomeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({positionClass:"toast-top-left"}),
+    
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
