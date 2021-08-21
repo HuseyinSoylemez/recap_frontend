@@ -5,25 +5,22 @@
 
   <div class="col-md-12">
     <div class="mb-3">
-       
+
         <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
             placeholder="Araç Adı Giriniz">
     </div>
 </div>
 <div *ngIf="filterText.length>2" class="alert alert-success text-center">
   {{filterText}} için sonuçlar :
-</div> 
+</div>
     <app-car-filter></app-car-filter>
-
-
-
 
 
   <div class="row">
     <div  class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let car of carsDetailDto|filterPipe:filterText">
     <div class="card border-0 mb-3" style="width: 18rem;">
       <img *ngIf="car.carImage.length==0" class="car-image"  src="{{imgUrl}}{{defaultImage}}" class="card-img-top" alt="Image" width="200" height="200">
-      <img *ngIf="car.carImage.length!=0" class="car-image" 
+      <img *ngIf="car.carImage.length!=0" class="car-image"
       src="{{imgUrl}}{{car.carImage[0].imagePath}}"
        class="card-img-top" alt="Image" width="200" height="200">
       <div class="card-body text-center"  >
@@ -47,14 +44,14 @@
         <li class="list-group-item">
           <span class="float-start">Açıklama</span>
           <span class="float-end">{{car.description}}</span>
-        </li>  
+        </li>
         <p class="card-text text-center h3 mt-3">{{car.dailyPrice| currency: "TRY":"₺" }}</p>
       </ul>
       <div class="card-body">
         <div class="d-flex action justify-content-between">
           <a href="" class="btn btn-success">Kirala</a>
          <a (click)="setCurrentCar(car)" routerLink="/cars/details/{{car.carId}}"
-           class="btn btn-primary">Detaylar</a> 
+           class="btn btn-primary">Detaylar</a>
         </div>
       </div>
     </div>
@@ -67,7 +64,7 @@
     <thead>
     <tr>
        <th scope="col">
-           ArabaId 
+           ArabaId
        </th>
        <th scope="col">
         Marka
@@ -87,7 +84,7 @@
     <th scope="col">
         Açılmama
     </th>
-  
+
     </tr>
 </thead>
 <tbody>
@@ -104,7 +101,7 @@
 </table>
 <hr class="text-danger">
 -->
-<table  class="table"> 
+<table  class="table">
     <thead>
     <tr>
        <th scope="col">
@@ -116,22 +113,22 @@
     <th scope="col">
         Renk
     </th>
-   
+
     <th scope="col">
         Kiralama Ücreti
     </th>
-    
-  
-    </tr> 
+
+
+    </tr>
 </thead>
 <tbody>
     <tr *ngFor="let car of carsDetailDto">
-        
+
         <td>{{car.carName}}</td>
         <td>{{car.brandName}}</td>
         <td>{{car.colorName}}</td>
         <td>{{car.dailyPrice}}</td>
     </tr>
 </tbody>
-</table>  
+</table>
 

@@ -12,7 +12,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class CarFilterComponent implements OnInit {
   brands: Brand[];
   colors: Color[];
- 
+
   filterText="";
   selectedBrand:string=null;
   selectedColor:string=null;
@@ -39,7 +39,7 @@ export class CarFilterComponent implements OnInit {
     if(this.selectedBrand!=null&&this.selectedColor!=null)
     {
       return "/cars/brand/"+this.selectedBrand+"/color/"+this.selectedColor
-      
+
     }
     else if(this.selectedBrand!=null&&this.selectedColor==null)
     {
@@ -49,8 +49,8 @@ export class CarFilterComponent implements OnInit {
      else if(this.selectedColor!=null&&this.selectedBrand==null)
     {
       return "/cars/color/"+this.selectedColor
-      
-    }    
+
+    }
     else{
 
     return "/cars"
@@ -58,13 +58,13 @@ export class CarFilterComponent implements OnInit {
   }
   getColors(){
     this.colorService.getColors().subscribe(response=>{
-      this.colors = response.data      
-    })    
+      this.colors = response.data
+    })
   }
   getBrands(){
     this.brandService.getBrands().subscribe(response=>{
       this.brands = response.data
-    })    
-  } 
+    })
+  }
 
 }
